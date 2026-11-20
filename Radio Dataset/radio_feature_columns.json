@@ -1,0 +1,191 @@
+{
+  "kpi_cols": [
+    "rsrp",
+    "rssi",
+    "rsrq",
+    "sinr",
+    "cqi",
+    "dlMcs",
+    "ulMcs",
+    "dlBler",
+    "ulBler",
+    "ri",
+    "phr",
+    "pcmax",
+    "pucchSnr",
+    "puschSnr"
+  ],
+  "counter_cols": [
+    "dlBytes",
+    "ulBytes"
+  ],
+  "numeric_cols": [
+    "rsrp",
+    "rssi",
+    "rsrq",
+    "sinr",
+    "cqi",
+    "dlMcs",
+    "ulMcs",
+    "dlBler",
+    "ulBler",
+    "ri",
+    "phr",
+    "pcmax",
+    "pucchSnr",
+    "puschSnr",
+    "dlBytes",
+    "ulBytes"
+  ],
+  "oob_flag_cols": [
+    "rsrp_flag_oob",
+    "rsrq_flag_oob",
+    "rssi_flag_oob",
+    "sinr_flag_oob",
+    "cqi_flag_oob",
+    "dlMcs_flag_oob",
+    "ulMcs_flag_oob",
+    "dlBler_flag_oob",
+    "ulBler_flag_oob",
+    "ri_flag_oob",
+    "phr_flag_oob",
+    "pcmax_flag_oob",
+    "pucchSnr_flag_oob",
+    "puschSnr_flag_oob"
+  ],
+  "alignment_cols": [
+    "scenario",
+    "timestamp_s",
+    "radio_window_id"
+  ],
+  "label_cols": [
+    "is_attack",
+    "family",
+    "mode",
+    "class_fm",
+    "ddos"
+  ],
+  "plausibility_ranges": {
+    "rsrp": [
+      -140,
+      -40
+    ],
+    "rsrq": [
+      -30,
+      0
+    ],
+    "rssi": [
+      -120,
+      0
+    ],
+    "sinr": [
+      -20,
+      40
+    ],
+    "cqi": [
+      0,
+      15
+    ],
+    "dlMcs": [
+      0,
+      28
+    ],
+    "ulMcs": [
+      0,
+      28
+    ],
+    "dlBler": [
+      0,
+      1
+    ],
+    "ulBler": [
+      0,
+      1
+    ],
+    "ri": [
+      1,
+      4
+    ],
+    "phr": [
+      -23,
+      40
+    ],
+    "pcmax": [
+      -30,
+      33
+    ],
+    "pucchSnr": [
+      -30,
+      60
+    ],
+    "puschSnr": [
+      -30,
+      60
+    ]
+  },
+  "all_clean_cols": [
+    "scenario",
+    "folder",
+    "family",
+    "mode",
+    "class_fm",
+    "is_attack",
+    "ddos",
+    "ue_id",
+    "timestamp_ms",
+    "timestamp_s",
+    "time_utc",
+    "radio_window_id",
+    "rsrp",
+    "rssi",
+    "rsrq",
+    "sinr",
+    "cqi",
+    "dlMcs",
+    "ulMcs",
+    "dlBler",
+    "ulBler",
+    "ri",
+    "phr",
+    "pcmax",
+    "pucchSnr",
+    "puschSnr",
+    "dlBytes",
+    "ulBytes",
+    "rnti",
+    "rnti_int",
+    "cellid",
+    "pmi",
+    "pmi_0",
+    "pmi_1",
+    "in_sync",
+    "is_duplicate",
+    "rsrp_flag_oob",
+    "rsrq_flag_oob",
+    "rssi_flag_oob",
+    "sinr_flag_oob",
+    "cqi_flag_oob",
+    "dlMcs_flag_oob",
+    "ulMcs_flag_oob",
+    "dlBler_flag_oob",
+    "ulBler_flag_oob",
+    "ri_flag_oob",
+    "phr_flag_oob",
+    "pcmax_flag_oob",
+    "pucchSnr_flag_oob",
+    "puschSnr_flag_oob",
+    "source_fmt",
+    "file_row",
+    "file_order_desc"
+  ],
+  "n_rows": 7490,
+  "n_scenarios": 35,
+  "notes": [
+    "No rows were dropped. All 7490 V1 per-scenario rows are retained.",
+    "timestamp_s = floor(timestamp_ms / 1000): whole UTC second for 1-Hz alignment.",
+    "radio_window_id = scenario + '@' + timestamp_s \u2014 equi-join key to network_clean.csv on (scenario, timestamp_s).",
+    "is_duplicate flags rows sharing (scenario, ue_id, timestamp_ms); rows are NOT removed.",
+    "OOB flag columns flag values outside 3GPP plausibility ranges; values are NOT changed.",
+    "ICMP3 and SYN3 were loaded from JSON (their CSVs had no timestamp column)."
+  ]
+}
