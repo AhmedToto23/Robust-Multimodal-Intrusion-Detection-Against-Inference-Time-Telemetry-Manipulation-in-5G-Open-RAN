@@ -1,0 +1,80 @@
+{
+ "CONFIG": {
+  "global_seed": 2025,
+  "seeds": [
+   101,
+   202,
+   303,
+   404,
+   505
+  ],
+  "threshold": 0.5,
+  "training": {
+   "optimizer": "AdamW",
+   "lr": 0.001,
+   "weight_decay": 0.0001,
+   "batch_size": 128,
+   "eval_batch_size": 512,
+   "max_epochs": 100,
+   "patience": 12,
+   "grad_clip_max_norm": 1.0,
+   "lr_overrides": {
+    "ft_transformer": 0.0003
+   }
+  },
+  "architectures": {
+   "mlp": {
+    "hidden_dims": [
+     256,
+     128,
+     64
+    ],
+    "dropout": 0.3
+   },
+   "cnn": {
+    "channels": [
+     32,
+     64
+    ],
+    "kernel_size": 3,
+    "dropout": 0.3,
+    "head_dim": 64
+   },
+   "lstm": {
+    "hidden_size": 64,
+    "num_layers": 1,
+    "bidirectional": false,
+    "feature_embedding_dim": 8,
+    "dropout": 0.3,
+    "head_dim": 32
+   },
+   "gru": {
+    "hidden_size": 64,
+    "num_layers": 1,
+    "bidirectional": false,
+    "feature_embedding_dim": 8,
+    "dropout": 0.3,
+    "head_dim": 32
+   },
+   "resmlp": {
+    "width": 96,
+    "n_blocks": 3,
+    "dropout": 0.2
+   },
+   "ft_transformer": {
+    "d_token": 64,
+    "n_layers": 2,
+    "n_heads": 4,
+    "d_ffn": 128,
+    "dropout": 0.2
+   }
+  },
+  "use_run_cache": true
+ },
+ "device": "cpu",
+ "versions": {},
+ "split_manifest_sha256": "e9090530e0ee8b753402d58d9829e662edafed307535d03f2deed7be25454c9e",
+ "frozen_record_sha256": "8ba5d12b6ce0a0c55f7078e21a0bca0fdecc5ee44eb2908feb7d24386223b1fe",
+ "smoke_test": false,
+ "runs_restored_from_cache": 86
+}
